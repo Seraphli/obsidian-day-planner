@@ -34,6 +34,7 @@ export default class PlannerMarkdown {
   }
 
   async insertPlanner() {
+    if (!(await this.file.hasTodayNote())) return;
     const filePath = this.file.todayPlannerFilePath();
     const fileContents = (await this.file.getFileContents(filePath)).split(
       '\n'
@@ -50,6 +51,7 @@ export default class PlannerMarkdown {
   }
 
   async parseDayPlanner(): Promise<PlanSummaryData> {
+    if (!(await this.file.hasTodayNote())) return;
     try {
       const filePath = this.file.todayPlannerFilePath();
       const fileContent = (await this.file.getFileContents(filePath)).split(
@@ -59,14 +61,13 @@ export default class PlannerMarkdown {
       const planData = await this.parser.parseMarkdown(fileContent);
       return planData;
     } catch (error) {
-      console.log("Day Planner", error);
+      console.log('Day Planner', error);
     }
   }
 
   async updateDayPlannerMarkdown(planSummary: PlanSummaryData) {
-    if (this.dayPlannerLastEdit + 6000 > new Date().getTime()) {
-      return;
-    }
+    if (this.dayPlannerLastEdit + 6000 > new Date().getTime()) return;
+    if (!(await this.file.hasTodayNote())) return;
     try {
       const filePath = this.file.todayPlannerFilePath();
       const fileContents = await this.file.getFileContents(filePath);
@@ -93,7 +94,7 @@ export default class PlannerMarkdown {
         this.file.updateFile(filePath, fileContentsWithReplacedMermaid);
       }
     } catch (error) {
-      console.log("Day Planner", error);
+      console.log('Day Planner', error);
     }
   }
 

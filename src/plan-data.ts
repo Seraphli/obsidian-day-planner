@@ -45,7 +45,7 @@ export class PlanSummaryData {
         }
       });
     } catch (error) {
-      console.log("Day Planner", error);
+      console.log('Day Planner', error);
     }
   }
 }

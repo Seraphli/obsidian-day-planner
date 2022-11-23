@@ -15,7 +15,7 @@ export default class Progress {
       const minsUntilNext = untilNext.asMinutes().toFixed(0);
       return { percentageComplete, minsUntilNext };
     } catch (error) {
-      console.log("Day Planner", error);
+      console.log('Day Planner', error);
     }
   }
 
@@ -28,7 +28,7 @@ export default class Progress {
         new Array(20 - completeCount).join('_ ')
       );
     } catch (error) {
-      console.log("Day Planner", error);
+      console.log('Day Planner', error);
     }
   }
 }
