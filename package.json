@@ -7,7 +7,10 @@
     "dev": "rollup --config rollup.config.js -w",
     "build": "rollup --config rollup.config.js",
     "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r ignore-styles -r jsdom-global/register tests/**/*.test.ts",
-    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
+    "version": "node version-bump.mjs && git add manifest.json versions.json",
+    "prepublish": "rm -rf dist/* && npm run build && cp manifest.json dist/ && cp styles.css dist/",
+    "publish": "npm run version && npm run prepublish"
   },
   "keywords": [],
   "author": "",
