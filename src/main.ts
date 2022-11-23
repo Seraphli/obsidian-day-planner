@@ -130,7 +130,7 @@ export default class DayPlanner extends Plugin {
             // console.log('No active note, skipping file processing')
           }
         } catch (error) {
-          console.log(error);
+          console.log("Day Planner", error);
         }
       }, 2000)
     );

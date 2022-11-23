@@ -55,7 +55,7 @@ export default class DayPlannerFile {
         await this.createFileIfNotExists(this.todayPlannerFilePath());
       }
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 
@@ -70,7 +70,7 @@ export default class DayPlannerFile {
         await this.vault.createFolder(normalizedPath);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 
@@ -84,7 +84,7 @@ export default class DayPlannerFile {
         );
       }
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 
@@ -93,7 +93,7 @@ export default class DayPlannerFile {
     try {
       return await this.vault.adapter.read(fileName);
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 
@@ -105,7 +105,7 @@ export default class DayPlannerFile {
         fileContents
       );
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 }

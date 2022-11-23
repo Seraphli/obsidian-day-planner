@@ -59,7 +59,7 @@ export default class PlannerMarkdown {
       const planData = await this.parser.parseMarkdown(fileContent);
       return planData;
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 
@@ -93,7 +93,7 @@ export default class PlannerMarkdown {
         this.file.updateFile(filePath, fileContentsWithReplacedMermaid);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 

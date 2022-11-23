@@ -71,7 +71,7 @@ export default class StatusBar {
         const fileName = this.file.todayPlannerFilePath();
         this.workspace.openLinkText(fileName, '', false);
       } catch (error) {
-        console.log(error);
+        console.log("Day Planner", error);
       }
     });
     status.on('mouseenter', '.day-planner', () => {

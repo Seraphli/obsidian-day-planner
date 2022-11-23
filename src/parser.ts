@@ -31,7 +31,7 @@ export default class Parser {
       });
       return matches;
     } catch (error) {
-      console.log(error);
+      console.log("Day Planner", error);
     }
   }
 
@@ -60,7 +60,7 @@ export default class Parser {
           value[0]
         );
       } catch (error) {
-        console.log(error);
+        console.log("Day Planner", error);
       }
     });
     return results;
