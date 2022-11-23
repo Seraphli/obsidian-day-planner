@@ -98,7 +98,9 @@ export class DayPlannerSettingsTab extends PluginSettingTab {
       );
     new Setting(containerEl)
       .setName('Auto Create Daily File')
-      .setDesc('Whether auto create daily planner file')
+      .setDesc(
+        'Whether auto create daily planner file every day. Note: this option will not disable auto creation of the "Show today\'s Day Planner" command.'
+      )
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.autoCreateDailyFile)

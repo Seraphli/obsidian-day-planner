@@ -98,12 +98,14 @@ export default class DayPlanner extends Plugin {
     this.addCommand({
       id: 'app:show-day-planner-today-note',
       name: "Show today's Day Planner",
-      callback: () =>
+      callback: async () => {
+        await this.file.prepareFile();
         this.app.workspace.openLinkText(
           this.file.todayPlannerFilePath(),
           '',
           true
-        ),
+        );
+      },
       hotkeys: [],
     });
 

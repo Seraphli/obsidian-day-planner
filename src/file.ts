@@ -21,9 +21,17 @@ export default class DayPlannerFile {
     this.noteForDateQuery = new NoteForDateQuery();
   }
 
-  hasTodayNote(): boolean {
+  async hasTodayNote(): Promise<boolean> {
+    if (this.settings.autoCreateDailyFile) {
+      return (
+        this.settings.mode === DayPlannerMode.File ||
+        this.noteForDateQuery.exists(this.settings.notesToDates)
+      );
+    }
+    const normalizedFileName = normalizePath(this.todayPlannerFilePath());
     return (
-      this.settings.mode === DayPlannerMode.File ||
+      (this.settings.mode === DayPlannerMode.File &&
+        (await this.vault.adapter.exists(normalizedFileName, false))) ||
       this.noteForDateQuery.exists(this.settings.notesToDates)
     );
   }

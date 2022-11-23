@@ -6,6 +6,10 @@
 This repository contains a plugin for [Obsidian](https://obsidian.md/) for day planning and managing pomodoro timers from a task list in a Markdown note. 
 
 > This is an early alpha of version of the plugin and it will be running constantly in the background while Obsidian is open and the plugin is enabled. **Please try the plugin in a test vault first, and, most importantly, make sure you have your notes backed up in cloud storage or Git.**
+
+## Difference from the original plugin
+
+- Add the option for not auto-creating the daily file, which should avoid the annoying file conflict across devices.
     
 ## Features
 
